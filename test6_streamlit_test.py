@@ -11,7 +11,7 @@ load_dotenv()
 aws_session = boto3.Session(
     aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID"),
     aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY"),
-    aws_secret_region=os.getenv("AWS_region"),
+    region_name=os.getenv("aws_secret_region"),
 )
 bedrock_client = aws_session.client(service_name="bedrock-runtime")
 
