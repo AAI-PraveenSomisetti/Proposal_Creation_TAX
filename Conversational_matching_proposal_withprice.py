@@ -206,13 +206,15 @@ def collect_missing_details_interactive(missing_keys):
 
     total_questions = len(missing_keys)
     asked_questions = len(st.session_state.collected_details)
+    Total_count_questions = total_questions + asked_questions
+    answered_questions = Total_count_questions - total_questions
 
     # Progress bar for questions answered
     status_bar = "".join(
-        ["✅" if i < asked_questions else "⬜" for i in range(total_questions)]
+        ["✅" if i < answered_questions else "⬜" for i in range(8)]
     )
     st.write(
-        f"Questions Status: {status_bar} {asked_questions}/{total_questions} questions answered"
+        f"Questions Status: {status_bar} ({answered_questions}/8) questions answered"
     )
 
     if unanswered_keys:
